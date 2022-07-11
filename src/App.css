@@ -1,0 +1,55 @@
+.inner_card{
+  height: auto;
+  width: 400px;
+  border: 2px solid lightgray;
+  /* display: flex; */
+  float: left;
+  margin: 1% 1%;
+  margin-left: 5%;
+}
+img{
+  height: 400px;
+  width: 400px;
+}
+.Navbar{
+  top: 0;
+  position: fixed;
+  /* height: 30px; */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #2874f0;
+}
+.cart_side{
+  display: flex;
+  justify-content: space-evenly;
+}
+.inner_side{
+  display: flex;
+  justify-content: space-evenly;
+}
+.right_side{
+  margin-left: 30%;
+}
+h2{
+  color: #fff;
+}
+.right_side:hover{
+  cursor: pointer;
+}
+
+button{
+  height: 50px;
+  width: 100%;
+}
+
+.for_buttons{
+  display: flex;
+}
+button:hover{
+  cursor: pointer;
+}
+
+.head{
+  margin-top: 5%;
+}
