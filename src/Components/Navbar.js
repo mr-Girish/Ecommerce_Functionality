@@ -1,9 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
-import Header from './Header'
-
+// import Header from './Header'
+const Header=React.lazy(()=>import('./Header'))
 const Navbar = () => {
     const[updatedCart,setupdatedCArt]=useState(0);
     const CartVal=()=>{
@@ -26,7 +26,9 @@ const Navbar = () => {
       
        
        <div className='head'>
+       <Suspense fallback={<div>Please wait.....</div>}>
        <Header  cart={CartVal}  />
+       </Suspense>
        </div>
        <div className='foot'>
        <Footer/>

@@ -4,17 +4,18 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 
 const ViewDetails = () => {
-    const [Sigledatabyid,SetsingledatabyId]=useState([]);
+    const [lazyload,Setlazyload]=useState(false);
+    const [Sigledatabyid,SetsingledatabyId]=useState({});
     const {id}=useParams();
-    console.log(id);
+    // console.log(id);
 
 
     const getDataById=async()=>{
         const SingleData=await fetch(`https://fakestoreapi.com/products/${id}`);
-        console.log(SingleData);
+        // console.log(SingleData);
         const ChangeFormate= await SingleData.json();
-        console.log(ChangeFormate)
-        SetsingledatabyId(SingleData);
+        // console.log(ChangeFormate)
+        SetsingledatabyId(ChangeFormate);
         // console.log(ChangeFormate)
     }
 
@@ -23,13 +24,16 @@ const ViewDetails = () => {
     },[]);
   return (
     <div>
-        <h1>ViewDetails{id} </h1>
-        {
-            console.log(Sigledatabyid)
-        }
-        {/* <img src={Sigledatabyid.image} alt="loading" /> */}
-        {/* <h1>{Sigledatabyid.title}</h1>
-        <h1>{Sigledatabyid.price}</h1> */}
+        <h1>ViewDetails {id} </h1>
+        
+        {lazyload ? 
+             <>
+             <img src={Sigledatabyid.image} alt="loading" />
+             <h1>{Sigledatabyid.title}</h1>
+             <h1>{Sigledatabyid.price}</h1></>
+        : "Loading"}
+        
+        
    
             
     </div>
